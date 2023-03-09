@@ -14,13 +14,12 @@ export function Hero() {
 
                 <div>
                   <h1 className="mx-auto my-auto text-4xl text-white font-bold tracking-tight sm:text-center sm:text-6xl">
-                    Cybersecurity demystified.
-                  </h1>
+                  Your personal roadmap for cybersecurity.                  </h1>
                   <p className="mx-auto my-auto mt-6 text-lg leading-8 text-gray-400 sm:text-center">
                   Data-driven cybersecurity mastery for the adventurous.                  </p>
                   <div className="mt-8 flex gap-x-4 sm:justify-center">
                     <a
-                      to="./register"
+                      href="./register"
                       className="inline-block rounded-lg border px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm"
                     >
                       Create an account
@@ -29,7 +28,7 @@ export function Hero() {
                       </span>
                     </a>
                     <a
-                      to="./login"
+                      href="./login"
                       className="inline-block rounded-lg px-4 py-1.5 text-base font-semibold leading-7 text-white ring-1 ring-white/10 hover:ring-white/20"
                     >
                       Returning user?
