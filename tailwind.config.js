@@ -23,6 +23,11 @@ module.exports = {
       borderRadius: {
         '4xl': '2rem',
       },
+      colors: {
+        grey: {
+          500: 'rgb(33, 33, 33)',
+        },
+      },
       fontFamily: {
         sans: ['Inter', ...defaultTheme.fontFamily.sans],
         display: ['Lexend', ...defaultTheme.fontFamily.sans],

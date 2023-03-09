@@ -1,5 +1,56 @@
 import { PracticeLayout } from '@/components/layouts'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Pagination } from 'swiper'
+import clsx from 'clsx'
 
+const mockPractices = [
+  {
+    title: 'Checkout this ascii animation',
+    difficulty: 'easy',
+    category: 'cryptography',
+  },
+  {
+    title: 'Given an id, find the full url',
+    difficulty: 'easy',
+    category: 'forenscis',
+  },
+  {
+    title: 'Bit Glitter!',
+    difficulty: 'medium',
+    category: 'cryptography',
+  },
+  {
+    title: 'Releasing Excited Electrons!',
+    difficulty: 'hard',
+    category: 'forensics',
+  },
+]
+
+function ChallengeCard(props) {
+  const { title, difficulty, category } = props
+  return (
+    <>
+      <div className="flex w-full cursor-pointer flex-col gap-1 rounded-md bg-grey-500 py-4 px-6">
+        <div className="text-xl text-white">{title}</div>
+        <div className="flex flex-row gap-1">
+          <div
+            className={clsx(
+              { 'text-green-500': difficulty === 'easy' },
+              { 'text-yellow-500': difficulty === 'medium' },
+              { 'text-red-500': difficulty === 'hard' }
+            )}
+          >
+            {difficulty}
+          </div>
+          <b className="text-white">∙</b>
+          <span className="rounded-lg bg-black px-2  lowercase text-white">
+            {category}
+          </span>
+        </div>
+      </div>
+    </>
+  )
+}
 export default function PracticePage() {
   // function loadChallenges() {
   //   fetch('https://api.ctfguide.com/challenges/type/all')
@@ -40,7 +91,39 @@ export default function PracticePage() {
   // }
   // loadChallenges()
 
-  return <div>Practice Page here</div>
+  return (
+    <div className="gap-3 p-8">
+      <div className="py-8">
+        <h1 className="flex items-center text-2xl text-gray-400">
+          Your current score is{' '}
+          <span className="ml-2 text-3xl text-white">0</span>
+        </h1>
+      </div>
+
+      <hr className="divide-x" />
+
+      <div className="py-8">
+        <h1 className="text-2xl text-gray-400">Recommend Challenges </h1>
+      </div>
+      <div>
+        <Swiper
+          slidesPerView={3}
+          spaceBetween={30}
+          pagination={{
+            clickable: true,
+          }}
+          className="mySwiper"
+          modules={[Pagination]}
+        >
+          {mockPractices.map((practice) => (
+            <SwiperSlide>
+              <ChallengeCard {...practice} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </div>
+  )
 }
 
 PracticePage.getLayout = function getLayout(page) {

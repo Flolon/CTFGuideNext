@@ -1,0 +1,8 @@
+:root {
+  --swiper-navigation-size: 20px !important;
+  --swiper-pagination-bullet-inactive-color: white !important;
+}
+
+.swiper-wrapper {
+  margin-bottom: 32px;
+}
